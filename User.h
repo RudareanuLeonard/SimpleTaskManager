@@ -104,9 +104,17 @@ public:
             
     }
 
-    // void addTaskToList(Task task){
-    //     this->_tasks.push_back(task);
-    // }
+    void displayTaskDetails(Task* t1){
+        cout << "Here is your task details: \n";
+        cout << "Task Name: " << t1->getName() << "\n";
+        cout << "Task Description: " << t1->getDescription() << "\n";
+        cout << "Priority level: " << t1->getPriorityLevel() << "\n";
+        if(t1->getCompleted() == 0)
+            cout << "Task is NOT complete\n";
+        else
+            cout << "Task is complete\n";
+
+    }
 
 
 };
