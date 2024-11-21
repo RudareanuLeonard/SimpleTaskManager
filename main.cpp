@@ -67,8 +67,9 @@ int main(){
                 u1->addTask(task);
             }
             else
-                cout <<"Invalid";
+                cout <<"Invalid\n";
 
+        cout << "\n";
         }
 
         if(choice == 2)
@@ -79,6 +80,26 @@ int main(){
         
         if(choice == 4)
             u1->displayHomeTasks();
+
+        if(choice == 5){
+            u1->displayAllTasks();
+            cout << "What task you want to modify(enter index): ";
+            int task_to_modify;
+            cin >> task_to_modify;
+            while (task_to_modify > u1->getTasks().size())
+            {   if(u1->getTasks().size() > 0)
+                cout << "You should enter a smaller index... (1 - " << u1->getTasks().size() << ")\n";
+                else{
+                    cout << "You don't have any task\n\n";
+                    break;
+                }
+            }
+
+            Task* current_task = u1->getTasks()[task_to_modify - 1];
+
+            u1->modifyTask(current_task);
+            
+        }
 
 
     }

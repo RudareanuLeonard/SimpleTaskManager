@@ -4,7 +4,6 @@
 #include "Headers.h"
 using namespace std;
 
-
 class User
 {
 private:
@@ -114,6 +113,76 @@ public:
         else
             cout << "Task is complete\n";
 
+    }
+
+
+    void modifyTask(Task* task){
+        cout << "Here is the details of you task: \n";
+        cout << "Name of the task: " << task->getName() << "\n";
+        cout << "Description of the task: " << task->getDescription() << "\n";
+        cout << "Completion level of the task: " << task->getCompleted() << "\n";
+        cout << "Priority level of the task: " << task->getPriorityLevel() << "\n";
+
+        cout << "Do you want to modify anything? (y or n)\n";
+        char answer;
+        cin.get();
+        cin >> answer;
+        cin.get();
+
+        if(answer == 'y'){
+            cout << "What do you want to modify?\n";
+            cout << "1. Name\n";
+            cout << "2. Description\n";
+            cout << "3. Completion level\n";
+            cout << "4. Priority level\n";
+
+            int choice;
+            cin >> choice;
+
+            if(choice == 1){
+                cout << "\nEnter a new name: \n";
+                char* task_name = new char[1024];
+                cout << "Add task name: ";
+                cin >>  task_name;
+                cout << "\n";
+                task->setTaskName(task_name);
+            }
+
+            if(choice == 2){
+                cout << "\nEnter a new description: \n";
+                char* task_description = new char[1024];
+                cout << "Add task description: ";
+                cin >>  task_description;
+                cout << "\n";
+                task->setDescription(task_description);
+
+            }
+            
+            if(choice == 3){
+                cout << "Is your task complete?(y or n)\n";
+                char answer;
+                cin.get();
+                cin >> answer;
+                cin.get();
+
+                if(answer == 'y')
+                    task->setCompleted(1);
+                else
+                    task->setCompleted(0);
+            }
+            
+            if(choice == 4){
+                cout << "\nEnter a new priority level: \n";
+                int priority_level;
+                cout << "Add priority level: ";
+                cin >> priority_level;
+                cout << "\n";
+                task->setPriorityLevel(priority_level);
+            }
+
+
+        }
+        
     }
 
 
